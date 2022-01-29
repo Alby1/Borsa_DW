@@ -14,6 +14,6 @@
 
 #COMPONENTI
 
-Elencate qui i componenti del gruppo, seguito da eventuali ruoli primari. 
+Schiavone Antonio, Macchi Alberto, Silvestre Samuele, Mezzetti Mattia, Lamorgese Angelo. 
 
 
