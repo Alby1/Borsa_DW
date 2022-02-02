@@ -17,7 +17,7 @@
 Schiavone Antonio (Programmatore)    
 Macchi Alberto    (Programmatore)  
 Silvestre Samuele (Programmatore)  
-Mezzetti Mattia   (Tester)  
+Mezzetti Mattia   (Programmatore/Tester)  
 Lamorgese Angelo  (Public relations)  
 
 # LINK UTILI
