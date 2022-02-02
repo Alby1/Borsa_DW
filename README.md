@@ -12,10 +12,10 @@
 
 
 
-#COMPONENTI
+# COMPONENTI
 
 Schiavone Antonio, Macchi Alberto, Silvestre Samuele, Mezzetti Mattia, Lamorgese Angelo. 
 
-#LINK UTILI
+# LINK UTILI
 Progetto: https://docs.google.com/document/d/1n9ppuHmVRj0__-WUvkqyaIKqdXXzqvrCABoGmOXEbH4/edit
 
