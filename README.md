@@ -14,8 +14,8 @@
 
 # COMPONENTI
 
-Schiavone Antonio  
-Macchi Alberto  
+Schiavone Antonio (programmatore) 
+Macchi Alberto    (programmatore)
 Silvestre Samuele  
 Mezzetti Mattia  
 Lamorgese Angelo  
