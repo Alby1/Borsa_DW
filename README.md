@@ -1,12 +1,11 @@
 # DW B T3 BORSA
 
 # COMPONENTI
-
-Schiavone Antonio (Programmatore)    
-Macchi Alberto    (Programmatore)  
-Silvestre Samuele (Programmatore)  
+Schiavone Antonio (Programmatore JAVA)  
+Macchi Alberto    (Programmatore JAVA)  
+Silvestre Samuele (Addetto all'HTML)  
 Mezzetti Mattia   (Programmatore/Tester)  
-Lamorgese Angelo  (Public relations)  
+Lamorgese Angelo  (Public relations e Controllore)  
 
 # LINK UTILI
 Progetto: https://docs.google.com/document/d/1n9ppuHmVRj0__-WUvkqyaIKqdXXzqvrCABoGmOXEbH4/edit  
