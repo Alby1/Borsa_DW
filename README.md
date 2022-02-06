@@ -2,7 +2,7 @@
 
 # COMPONENTI
 Schiavone Antonio (Programmatore JAVA)  
-Macchi Alberto    (Programmatore JAVA)  
+Macchi Alberto    (Programmatore JAVA/JS)  
 Silvestre Samuele (Addetto all'HTML)  
 Mezzetti Mattia   (Programmatore/Tester)  
 Lamorgese Angelo  (Public relations e Controllore)  
