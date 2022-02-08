@@ -1,10 +1,7 @@
 body{
   background-color:#000;
-
 }
 *{
-  padding: 0;
-  margin: 0;
   font-family: sans-serif;
 }
 .container{
@@ -28,6 +25,10 @@ body{
   margin-bottom: 20px;
   position: relative;
   animation: text 3s 1;
+  display: inline;
+  width: 50%;
+  margin: 0 auto;
+  border: 2px dashed blue;
 }
 @keyframes text {
   0%{
@@ -45,12 +46,45 @@ body{
 }
 #immagine{
   height: 100px;
-  margin-top: 80px;
+  float: left;
+  display: inline;
+  border: 2px dashed blue;
 }
-hr{
-  margin-bottom: 30px;
-  color: transparent;
-  background: transparent;
+marquee{
+  clear: both;
+  color: white;
+  display: block;
+  border: 2px dashed blue;
+  height: 50px;
+  width: 100%;
+  margin-bottom: 50px;
+}
+marquee p{
+  color: white;
+  font-size: 50px;
+  border: 2px dashed blue;
+  margin-top: 0;
+}
+.marquee{
+  background-color: black;
+  text-transform: uppercase;
+  white-space: nowrap;
+  display: block;
+  border: 2px dashed blue;
+  width: 100%;
+}
+.marquee div{
+  font-size: 50px;
+  font-family: verdana;
+  color: white;
+  animation: animate 10s linear infinite;
+  padding-left: 100%;
+  display: block;
+}
+@keyframes animate{
+  100%{
+    transform: translate(-100%, 0);
+  } 
 }
 .box1{
   background-color: red;
@@ -59,8 +93,9 @@ hr{
   margin-bottom: 50px;
   margin-left: 30px;
   border-radius: 10px;
+  clear: both;
   float: left;
-  display: inline;
+  display: block;
 }
 .box3{
   background-color: peru;
