@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>BORSA-ITALIANA</title>
+    <link rel="stylesheet" href="index.css">
+    <script src="code.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.0/chart.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <span class="text1" id="title">BORSA NFLX</span>
+    </div>
+      <img id="immagine"src="img/NFLX.png" alt="">
+    <br><br><br><br><br><br><br>
+    <div class="marquee">
+      <p>VALORI DEL GRAFICO</p>
+    </div>
+    <br><br>
+    <div class="box1"><canvas id="main-chart"></canvas></div>
+    <div class="box3">
+      <h2 id="code"></h2>
+      <h3 id="exchange"></h3>
+      <h4 id="address"></h4>
+      <p id="description"></p>
+      <p id="maxHypo"></p>
+      <p id="earned"></p>
+      <p id="raiseDays"></p>
+    </div>
+    <div class="box2"><canvas id="the-other-chart"></canvas></div>
+    <div class="box4"><p>VALORI</p></div>
+    <script>document.onload = STDs()</script>
+  </body>
+</html>

@@ -1,5 +1,5 @@
 STOCK_NAME='Apple Inc.'
-STOCK_ADDRESS='daddy tim cook street'
+STOCK_ADDRESS='Daddy tim cook street'
 STOCK_DESCRIPTION='Apple Inc. is an American multinational technology company that specializes in consumer electronics, software and online services.'
 
 
