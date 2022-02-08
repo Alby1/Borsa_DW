@@ -48,8 +48,9 @@ body{
   margin-top: 80px;
 }
 hr{
-  margin-bottom: 20px;
-  color:transparent;
+  margin-bottom: 30px;
+  color: transparent;
+  background: transparent;
 }
 .box1{
   background-color: red;
