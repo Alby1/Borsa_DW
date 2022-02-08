@@ -1,6 +1,6 @@
-STOCK_NAME='Apple Inc.'
-STOCK_ADDRESS='daddy tim cook street'
-STOCK_DESCRIPTION='Apple Inc. is an American multinational technology company that specializes in consumer electronics, software and online services.'
+STOCK_NAME='Netflix, Inc.'
+STOCK_ADDRESS='100 Winchester Cir, Los Gatos, California, United States'
+STOCK_DESCRIPTION='Netflix, Inc. is an American subscription streaming service and production company. Launched on August 29, 1997, it offers a library of films and television series through distribution deals as well as its own productions, known as Netflix Originals.'
 
 
 
