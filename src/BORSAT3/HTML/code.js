@@ -178,8 +178,14 @@ function mainChart(){
                         color: 'whitesmoke'
                     }
                 }
+            },
+            plugins: {
+                legend: {
+                    labels: {
+                        color: 'whitesmoke'
+                    }
+                }
             }
-            
         }
     })
 }
@@ -240,8 +246,14 @@ function theOtherChart(){
                         color: 'whitesmoke'
                     }
                 }
+            },
+            plugins: {
+                legend: {
+                    labels: {
+                        color: 'whitesmoke'
+                    }
+                }
             }
-            
         }
     })
 }
