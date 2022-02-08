@@ -165,6 +165,21 @@ function mainChart(){
                 borderColor: 'rgb(220, 40, 70)',
                 tension: 0.1
             }]
+        },
+        options: {
+            scales: {
+                x: {
+                    ticks: {
+                        color: 'whitesmoke'
+                    }
+                },
+                y: {
+                    ticks: {
+                        color: 'whitesmoke'
+                    }
+                }
+            }
+            
         }
     })
 }
@@ -212,6 +227,21 @@ function theOtherChart(){
                 borderWidth: 2,
                 tension: 0.1
             }]
+        },
+        options: {
+            scales: {
+                x: {
+                    ticks: {
+                        color: 'whitesmoke'
+                    }
+                },
+                y: {
+                    ticks: {
+                        color: 'whitesmoke'
+                    }
+                }
+            }
+            
         }
     })
 }
