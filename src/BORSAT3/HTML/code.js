@@ -1,5 +1,3 @@
-STOCK_CODE='AAPL'
-STOCK_EXCHANGE='NASDAQ'
 STOCK_NAME='Apple Inc.'
 STOCK_ADDRESS='daddy tim cook street'
 STOCK_DESCRIPTION='Apple Inc. is an American multinational technology company that specializes in consumer electronics, software and online services.'
@@ -43,8 +41,8 @@ function STDs(){
 
 function mainInfo(){
     document.getElementById("title").innerHTML = STOCK_NAME
-    document.getElementById("code").innerHTML = STOCK_CODE
-    document.getElementById("exchange").innerHTML = STOCK_EXCHANGE
+    document.getElementById("code").innerHTML = st[0].symbol
+    document.getElementById("exchange").innerHTML = st[0].exchange
     document.getElementById("address").innerHTML = STOCK_ADDRESS
     document.getElementById("description").innerHTML = STOCK_DESCRIPTION
     
@@ -53,7 +51,7 @@ function mainInfo(){
     while(repeat){
         budget *= 10
         maxHypo = maxHypotheticalHighAndSellRevenue(budget)
-        if(maxHypo != budget) repeat = false
+        if(budget != maxHypo) repeat = false
     }
     document.getElementById("maxHypo").innerHTML = `If you had marketed ${budget}$ you would have ${maxHypo}$ now.`
 
@@ -85,7 +83,7 @@ function maxHypotheticalHighAndSellRevenue(budget){
             if(budget >= today && !st.length - i < 10){
                 buyableAmount = 1
                 if(higher < 0){
-                    buyableAmount = (budget / today).toFixed(0)
+                    buyableAmount = Math.floor(budget / today)
                 }
                 budget -= today * buyableAmount
                 stocks += buyableAmount
@@ -99,7 +97,6 @@ function maxHypotheticalHighAndSellRevenue(budget){
                 stocks += 1
             }
         }
-        console.log(stocks + " " + budget + " " + today)
 
         yesterday = today
     }
