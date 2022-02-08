@@ -4,6 +4,10 @@ import org.json.*;
 
 public class Parser {
 
+    /**
+     * Parses the needed data from the JSON string.
+     * @param json the JSON string to parse the data from.
+     */
     public void parseJSON(String json) {
         JSONObject obj = new JSONObject(json);
 

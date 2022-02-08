@@ -8,6 +8,10 @@ import java.time.LocalDate;
 
 public class Requester {
 
+    /**
+     * Requests stock data from the API.
+     * @return the JSON string with the stock values. If an exception occurs, null.
+     */
     public String makeAPIRequest() {
         try {
             LocalDate to = LocalDate.of(LocalDate.now().getYear(), LocalDate.now().getMonth(), LocalDate.now().getDayOfMonth());
