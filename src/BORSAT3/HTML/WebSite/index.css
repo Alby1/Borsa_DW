@@ -28,9 +28,8 @@ body{
   display: inline;
   width: 50%;
   margin: 0 auto;
-  border: 2px dashed blue;
 }
-@keyframes text {
+@keyframes text{
   0%{
     color: #000;
     margin-bottom: -40px;
@@ -48,43 +47,58 @@ body{
   height: 100px;
   float: left;
   display: inline;
-  border: 2px dashed blue;
 }
-marquee{
-  clear: both;
+.example1{
+  height: 50px;	
+  overflow: hidden;
+  position: relative;
+}
+.example1 h3{
+  font-size: 3em;
   color: white;
-  display: block;
-  border: 2px dashed blue;
-  height: 50px;
+  position: absolute;
   width: 100%;
-  margin-bottom: 50px;
+  height: 100%;
+  margin: 0;
+  line-height: 50px;
+  text-align: center;
+  /* Posizione iniziale */
+  -moz-transform:translateX(100%);
+  -webkit-transform:translateX(100%);	
+  transform:translateX(100%);
+  /* Appicazione dell'animazione all'elemento */	
+  -moz-animation: example1 10s linear infinite;
+  -webkit-animation: example1 10s linear infinite;
+  animation: example1 10s linear infinite;
+ }
+ /* Definizione dell'animazione */
+@-moz-keyframes example1{
+  0%{
+     -moz-transform: translateX(100%); 
+  }
+  100%{ 
+    -moz-transform: translateX(-100%); 
+  }
 }
-marquee p{
-  color: white;
-  font-size: 50px;
-  border: 2px dashed blue;
-  margin-top: 0;
-}
-.marquee{
-  background-color: black;
-  text-transform: uppercase;
-  white-space: nowrap;
-  display: block;
-  border: 2px dashed blue;
-  width: 100%;
-}
-.marquee div{
-  font-size: 50px;
-  font-family: verdana;
-  color: white;
-  animation: animate 10s linear infinite;
-  padding-left: 100%;
-  display: block;
-}
-@keyframes animate{
+@-webkit-keyframes example1{
+  0%{ 
+    -webkit-transform: translateX(100%); 
+  }
   100%{
-    transform: translate(-100%, 0);
-  } 
+    -webkit-transform: translateX(-100%); 
+  }
+}
+@keyframes example1{
+  0%{ 
+    -moz-transform: translateX(100%); 
+    -webkit-transform: translateX(100%); 
+    transform: translateX(100%); 		
+  }
+  100%{ 
+    -moz-transform: translateX(-100%); 
+    -webkit-transform: translateX(-100%); 
+    transform: translateX(-100%); 
+  }
 }
 .box1{
   background-color: red;
