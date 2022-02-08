@@ -67,9 +67,9 @@ body{
   -webkit-transform:translateX(100%);	
   transform:translateX(100%);
   /* Appicazione dell'animazione all'elemento */	
-  -moz-animation: example1 10s linear infinite;
-  -webkit-animation: example1 10s linear infinite;
-  animation: example1 10s linear infinite;
+  -moz-animation: example1 11s linear infinite;
+  -webkit-animation: example1 11s linear infinite;
+  animation: example1 11s linear infinite;
  }
  /* Definizione dell'animazione */
 @-moz-keyframes example1{
