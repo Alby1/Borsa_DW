@@ -41,7 +41,7 @@ function marqData(string){
     marqDa = document.getElementById("marqData")
     
     if(marqDa.innerHTML != ""){
-        marqDa.innerHTML += " - - - "
+        marqDa.innerHTML += " - "
     }
     marqDa.innerHTML += string
 }
@@ -52,7 +52,7 @@ function mainInfo(){
     document.getElementById("exchange").innerHTML = st[st.length - 1].exchange
     document.getElementById("address").innerHTML = STOCK_ADDRESS
     document.getElementById("description").innerHTML = STOCK_DESCRIPTION
-    marqData(`Last close: ${st[st.length - 1].close}$`)
+    marqData(`Last close: ${(st[st.length - 1].close).toFixed(2)}$`)
     
     repeat = true
     budget = 1
@@ -123,7 +123,7 @@ function raiseDaysPercentage(){
         daysPassed += 1
         yesterday = today
     }
-    return daysRaised / daysPassed
+    return (daysRaised / daysPassed).toFixed(3)
 }
 
 function mainChart(){
@@ -147,8 +147,8 @@ function mainChart(){
         date = new Date(st[i].date)
         labels[i] = `${date.getFullYear()}-${date.getMonth() + 1}-${date.getDay()}`
     }
-    marqData(`Maximum value in the span: ${max}$`)
-    marqData(`Minimum value in the span: ${min}$`)
+    marqData(`MAX in time: ${max.toFixed(2)}$`)
+    marqData(`MIN in time: ${min.toFixed(2)}$`)
 
     const myChart = new Chart(ctx, {
         type: 'line',
