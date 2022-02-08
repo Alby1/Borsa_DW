@@ -37,13 +37,22 @@ function STDs(){
     theOtherChart()
 }
 
+function marqData(string){
+    marqDa = document.getElementById("marqData")
+    
+    if(marqDa.innerHTML != ""){
+        marqDa.innerHTML += " - - - "
+    }
+    marqDa.innerHTML += string
+}
+
 function mainInfo(){
     document.getElementById("title").innerHTML = STOCK_NAME
     document.getElementById("code").innerHTML = st[st.length - 1].symbol
     document.getElementById("exchange").innerHTML = st[st.length - 1].exchange
     document.getElementById("address").innerHTML = STOCK_ADDRESS
     document.getElementById("description").innerHTML = STOCK_DESCRIPTION
-    document.getElementById("lastClose").innerHTML = `Last close: ${st[st.length - 1].close}$`
+    marqData(`Last close: ${st[st.length - 1].close}$`)
     
     repeat = true
     budget = 1
@@ -138,8 +147,8 @@ function mainChart(){
         date = new Date(st[i].date)
         labels[i] = `${date.getFullYear()}-${date.getMonth() + 1}-${date.getDay()}`
     }
-    document.getElementById("spanMax").innerHTML = `Maximum value in the span: ${max}$`
-    document.getElementById("spanMin").innerHTML = `Minimum value in the span: ${min}$`
+    marqData(`Maximum value in the span: ${max}$`)
+    marqData(`Minimum value in the span: ${min}$`)
 
     const myChart = new Chart(ctx, {
         type: 'line',
