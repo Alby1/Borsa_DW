@@ -43,6 +43,7 @@ function mainInfo(){
     document.getElementById("exchange").innerHTML = st[st.length - 1].exchange
     document.getElementById("address").innerHTML = STOCK_ADDRESS
     document.getElementById("description").innerHTML = STOCK_DESCRIPTION
+    document.getElementById("lastClose").innerHTML = `Last close: ${st[st.length - 1].close}$`
     
     repeat = true
     budget = 1
@@ -124,8 +125,12 @@ function mainChart(){
     highs = []
     lows = []
     labels = []
+    max = st[0].close
+    min = st[0].close
 
     for (let i = 0; i < st.length; i++) {
+        if(max < st[i].close) max = st[i].close
+        if(min > st[i].close) min = st[i].close
         closes[i] = st[i].close
         opens[i] = st[i].open
         highs[i] = st[i].high
@@ -133,6 +138,8 @@ function mainChart(){
         date = new Date(st[i].date)
         labels[i] = `${date.getFullYear()}-${date.getMonth() + 1}-${date.getDay()}`
     }
+    document.getElementById("spanMax").innerHTML = `Maximum value in the span: ${max}$`
+    document.getElementById("spanMin").innerHTML = `Minimum value in the span: ${min}$`
 
     const myChart = new Chart(ctx, {
         type: 'line',
