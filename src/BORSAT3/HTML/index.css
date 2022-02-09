@@ -1,5 +1,7 @@
 body{
   background-color:#000;
+  margin: 0;
+  padding: 0;
 }
 *{
   font-family: sans-serif;
@@ -47,6 +49,7 @@ body{
   height: 100px;
   float: left;
   display: inline;
+  margin-top: 10px;
 }
 .marquee{
   height: 50px;	
@@ -67,12 +70,12 @@ body{
   -webkit-transform:translateX(100%);	
   transform:translateX(100%);
   /* Appicazione dell'animazione all'elemento */	
-  -moz-animation: example1 11s linear infinite;
-  -webkit-animation: example1 11s linear infinite;
-  animation: example1 11s linear infinite;
+  -moz-animation: marquee 11s linear infinite;
+  -webkit-animation: marquee 11s linear infinite;
+  animation: marquee 11s linear infinite;
  }
  /* Definizione dell'animazione */
-@-moz-keyframes example1{
+@-moz-keyframes marquee{
   0%{
      -moz-transform: translateX(100%); 
   }
@@ -80,7 +83,7 @@ body{
     -moz-transform: translateX(-100%); 
   }
 }
-@-webkit-keyframes example1{
+@-webkit-keyframes marquee{
   0%{ 
     -webkit-transform: translateX(100%); 
   }
@@ -88,7 +91,7 @@ body{
     -webkit-transform: translateX(-100%); 
   }
 }
-@keyframes example1{
+@keyframes marquee{
   0%{ 
     -moz-transform: translateX(100%); 
     -webkit-transform: translateX(100%); 
