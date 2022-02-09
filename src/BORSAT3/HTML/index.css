@@ -58,7 +58,7 @@ body{
   position: relative;
 }
 .marquee p{
-  font-size: 3em;
+  font-size: 2em;
   color: whitesmoke;
   position: absolute;
   width: 100%;
