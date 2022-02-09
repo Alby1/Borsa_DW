@@ -105,8 +105,8 @@ body{
 }
 .box1{
   background-color: #303030;
-  width: 40%;
-  height: 400px;
+  width: 45%;
+  height: 45%;
   margin-bottom: 50px;
   margin-left: 30px;
   border-radius: 10px;
@@ -119,8 +119,8 @@ body{
 }
 .box3{
   background-color: whitesmoke;
-  width: 40%;
-  height: 400px;
+  width: 45%;
+  height: 45%;
   margin-right: 30px;
   border-radius: 10px;
   float: right;
@@ -132,8 +132,8 @@ body{
 }
 .box2{
   background-color: #303030;
-  width: 40%;
-  height: 400px;
+  width: 45%;
+  height: 45%;
   margin-left: 30px;
   border-radius: 10px;
   clear: both;
@@ -146,8 +146,8 @@ body{
 .box4{
   display: inline;
   background-color: whitesmoke;
-  width: 40%;
-  height: 400px;
+  width: 45%;
+  height: 45%;
   margin-right: 30px;
   border-radius: 10px;
   float: right;
