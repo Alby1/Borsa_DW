@@ -2,6 +2,14 @@ package dw.t3;
 
 import org.json.*;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.time.Instant;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.Date;
+
 public class Parser {
 
     /**
@@ -27,6 +35,22 @@ public class Parser {
             }
         }
         return arr.toString();
+    }
+
+    public String[] parseDataJSON(String json) {
+        JSONObject obj = new JSONObject(json);
+
+        String[] out = new String[3];
+
+        out[0] = obj.getString("ticker");
+
+        String[] date = obj.getString("starting_date").split("/");
+        out[1] = date[2] + "-" + date[1] + "-" + date[0];
+
+        date = obj.getString("ending_date").split("/");
+        out[2] = date[2] + "-" + date[1] + "-" + date[0];
+
+        return out;
     }
 
 }

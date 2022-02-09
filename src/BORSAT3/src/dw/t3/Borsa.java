@@ -12,10 +12,13 @@ public class Borsa {
         Requester requester = new Requester();
         Parser parser = new Parser();
 
-        String json = parser.parseJSON(requester.makeAPIRequest());
-        //String json = "test string (to not waste API quota";
+        String[] data = parser.parseDataJSON(requester.makeAPIDataRequest());
+
+        String json = parser.parseJSON(requester.makeAPIRequest(data));
+        //String json = "test string (to not waste API quota)";
 
         String jarPath;
+
 
 
         try {

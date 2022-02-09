@@ -12,11 +12,9 @@ public class Requester {
      * Requests stock data from the API.
      * @return the JSON string with the stock values. If an exception occurs, null.
      */
-    public String makeAPIRequest() {
+    public String makeAPIRequest(String[] data) {
         try {
-            LocalDate to = LocalDate.of(LocalDate.now().getYear(), LocalDate.now().getMonth(), LocalDate.now().getDayOfMonth());
-            LocalDate from = to.minusYears(1);
-            URL url = new URL("http://api.marketstack.com/v1/eod?access_key=ad6efcf74f8bee5e5615cc2146452418&symbols=NFLX&limit=500&date_from=" + from + "&date_to=" + to);
+            URL url = new URL("http://api.marketstack.com/v1/eod?access_key=ad6efcf74f8bee5e5615cc2146452418&symbols=" + data[0] + "&limit=500&date_from=" + data[1] + "&date_to=" + data[2]);
             HttpURLConnection con = (HttpURLConnection) url.openConnection();
             con.setRequestMethod("GET");
             BufferedReader in = new BufferedReader(new InputStreamReader(con.getInputStream()));
@@ -34,4 +32,24 @@ public class Requester {
         }
     }
 
+    public String makeAPIDataRequest() {
+        try {
+            URL url = new URL("https://dwweb.gnet.it/dw2022/");
+            HttpURLConnection con = (HttpURLConnection) url.openConnection();
+            con.setRequestMethod("GET");
+            BufferedReader in = new BufferedReader(new InputStreamReader(con.getInputStream()));
+            String inputLine;
+            StringBuffer content = new StringBuffer();
+            while ((inputLine = in.readLine()) != null) {
+                content.append(inputLine);
+            }
+            in.close();
+            con.disconnect();
+
+            return content.toString();
+        } catch (Exception ex) {
+            ex.printStackTrace();
+            return null;
+        }
+    }
 }
