@@ -78,6 +78,12 @@ body{
   display: inline;
   margin-top: 10px;
 }
+#logo{
+  height: 100px;
+  float: right;
+  margin-right: 10px;
+  margin-top: 10px;
+}
 .marquee{
   height: 50px;	
   width: 100%;
@@ -97,9 +103,9 @@ body{
   -webkit-transform:translateX(100%);	
   transform:translateX(100%);
   /* Appicazione dell'animazione all'elemento */	
-  -moz-animation: marquee 11s linear infinite;
-  -webkit-animation: marquee 11s linear infinite;
-  animation: marquee 11s linear infinite;
+  -moz-animation: marquee 11.5s linear infinite;
+  -webkit-animation: marquee 11.5s linear infinite;
+  animation: marquee 11.5s linear infinite;
  }
  /* Definizione dell'animazione */
 @-moz-keyframes marquee{
