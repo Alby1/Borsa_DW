@@ -8,7 +8,7 @@ public class Parser {
      * Parses the needed data from the JSON string.
      * @param json the JSON string to parse the data from.
      */
-    public void parseJSON(String json) {
+    public String parseJSON(String json) {
         JSONObject obj = new JSONObject(json);
 
         JSONArray arr = obj.getJSONArray("data");
@@ -25,9 +25,8 @@ public class Parser {
                 value.remove("symbol");
                 value.remove("exchange");
             }
-            System.out.println(value);
         }
-        System.out.println(arr);
+        return arr.toString();
     }
 
 }
