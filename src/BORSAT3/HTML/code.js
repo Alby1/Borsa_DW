@@ -41,7 +41,7 @@ function marqData(string){
     marqDa = document.getElementById("marqData")
     
     if(marqDa.innerHTML != ""){
-        marqDa.innerHTML += " - "
+        marqDa.innerHTML += " · "
     }
     marqDa.innerHTML += string
 }

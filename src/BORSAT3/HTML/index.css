@@ -163,6 +163,7 @@ body{
   float: right;
   padding: 1%;
   font-size: 15px;
+  overflow: hidden;
 }
 .button span {
   cursor: pointer;
