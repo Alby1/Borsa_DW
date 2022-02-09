@@ -15,10 +15,37 @@ body{
   width: 100%;
 }
 .container span{
-  color: whitesmoke;
-  text-transform: uppercase;
+  text-align: center; 
+  font: 700 4em/1 "Oswald", sans-serif;
+  letter-spacing: 0;
+  padding: .25em 0 .325em;
   display: block;
+  margin: 0 auto;
+  text-shadow: 0 0 80px rgba(220, 20, 60, 1);
 
+/* Clip Background Image */
+
+  background: url("img/Backround-text.png");
+  -webkit-background-clip: text;
+  background-clip: text;
+
+/* Animate Background Image */
+
+  -webkit-text-fill-color: transparent;
+  -webkit-animation: aitf 80s linear infinite;
+
+/* Activate hardware acceleration for smoother animations */
+
+  -webkit-transform: translate3d(0,0,0);
+  -webkit-backface-visibility: hidden;
+}
+  @-webkit-keyframes aitf{
+	0% { 
+    background-position: 0% 50%; 
+  }
+	100% { 
+    background-position: 100% 50%; 
+  }
 }
 .text1{
   font-size: 30px;
