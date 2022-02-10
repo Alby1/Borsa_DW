@@ -32,6 +32,10 @@ public class Requester {
         }
     }
 
+    /**
+     * Requests stock data from the API.
+     * @return Returns a string that defines the answer to the call. If an exception occurs, null.
+     */
     public String makeAPIDataRequest() {
         try {
             URL url = new URL("https://dwweb.gnet.it/dw2022/");
@@ -53,6 +57,10 @@ public class Requester {
         }
     }
 
+    /**
+     * Requests image from the API
+     * @return Returns a string that defines the answer to the call. If an exception occurs, null.
+     */
     public String makeImgRequest(String ticker){
         try{
             URL url = new URL("https://app.zenserp.com/api/v2/search?apikey=66e55c20-8a54-11ec-904f-f18088d51853&tbm=isch&q=" + ticker);

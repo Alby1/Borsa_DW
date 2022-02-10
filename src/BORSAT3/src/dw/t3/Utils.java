@@ -4,7 +4,11 @@ import java.util.Locale;
 
 public class Utils {
 
+    /**
+     * Gets informations about the OS that is being currently used
+     */
     private static String OS = System.getProperty("os.name", "unknown").toLowerCase(Locale.ROOT);
+
 
     public static boolean isWindows()
     {

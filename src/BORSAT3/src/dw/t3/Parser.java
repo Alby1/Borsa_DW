@@ -37,6 +37,11 @@ public class Parser {
         return arr.toString();
     }
 
+    /**
+     * Defines ticker, starting and ending date of the stock, basing on the DW 2022 API
+     * @param json json string
+     * @return Data array
+     */
     public String[] parseDataJSON(String json) {
         JSONObject obj = new JSONObject(json);
 
@@ -53,6 +58,11 @@ public class Parser {
         return out;
     }
 
+    /**
+     * Gets image from a url
+     * @param json
+     * @return URL of the string
+     */
     public String parseImgJSON(String json){
         JSONObject out = new JSONObject(json);
 
