@@ -67,7 +67,7 @@ function maxHypotheticalHighAndSellRevenue(budget){
     for (let i = 0; i < st.length; i++) {
         out += st[i].high - st[i].low
     }
-    return out
+    return out.toFixed(2)
 }
 
 function raiseDaysPercentage(){
