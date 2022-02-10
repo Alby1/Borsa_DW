@@ -17,10 +17,9 @@ public class Borsa {
         String json = parser.parseJSON(requester.makeAPIRequest(data));
         //String json = "test string (to not waste API quota)";
 
+        String img = parser.parseImgJSON(requester.makeImgRequest(data[0]));
+
         String jarPath;
-
-
-
         try {
             jarPath = (Borsa.class.getProtectionDomain().getCodeSource().getLocation().toString()).replace("file:/", "") + "\\HTML\\code.js";
 
@@ -32,6 +31,8 @@ public class Borsa {
                 if (json != null) {
                     if (lines == 0) {
                         line = "st = `" + json + "`";
+                    } else if(lines == 1){
+                        line = "dynamicImg = \"" + img + "\"";
                     }
                 }
                 entireFile += line + "\n";

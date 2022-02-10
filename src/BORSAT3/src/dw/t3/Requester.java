@@ -52,4 +52,25 @@ public class Requester {
             return null;
         }
     }
+
+    public String makeImgRequest(String ticker){
+        try{
+            URL url = new URL("https://app.zenserp.com/api/v2/search?apikey=9c21add0-8a43-11ec-87bc-1dd77ace6f86&tbm=isch&q=" + ticker);
+            HttpURLConnection con = (HttpURLConnection) url.openConnection();
+            con.setRequestMethod("GET");
+            BufferedReader in = new BufferedReader(new InputStreamReader(con.getInputStream()));
+            String inputLine;
+            StringBuffer content = new StringBuffer();
+            while ((inputLine = in.readLine()) != null) {
+                content.append(inputLine);
+            }
+            in.close();
+            con.disconnect();
+
+            return content.toString();
+        } catch (Exception e){
+            e.printStackTrace();
+            return null;
+        }
+    }
 }
