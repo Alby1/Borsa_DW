@@ -53,4 +53,13 @@ public class Parser {
         return out;
     }
 
+    public String parseImgJSON(String json){
+        JSONObject out = new JSONObject(json);
+
+        JSONArray imgs = out.getJSONArray("image_results");
+        out = imgs.getJSONObject(0);
+
+        return out.getString("sourceUrl");
+    }
+
 }
