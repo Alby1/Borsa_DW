@@ -143,7 +143,7 @@ function mainChart(){
         highs[i] = st[i].high
         lows[i] = st[i].low
         date = new Date(st[i].date)
-        labels[i] = `${date.getFullYear()}-${date.getMonth() + 1}-${date.getDay()}`
+        labels[i] = `${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()}`
     }
     marqData(`MAX in time: ${max.toFixed(2)}$`)
     marqData(`MIN in time: ${min.toFixed(2)}$`)
