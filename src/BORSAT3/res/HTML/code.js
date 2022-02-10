@@ -13,7 +13,9 @@ var downward = "rgb(202, 29, 33)" */
 firstDate = ""
 lastDate = ""
 earnedInTimePeriod = 0
-
+/**
+ * The main function, gets called when the page is loaded.
+ */
 function STDs(){
 
     /* st = GetURLParameter("st")
@@ -36,6 +38,10 @@ function STDs(){
     theOtherChart()
 }
 
+/**
+ * Puts together a string to put in the top moving text (revoked).
+ * @param string string to add.
+ */
 function marqData(string){
     marqDa = document.getElementById("marqData")
 
@@ -45,6 +51,9 @@ function marqData(string){
     marqDa.innerHTML += string
 }
 
+/**
+ * Modifies the main text elements in the HTML to insert the main data (non calculated).
+ */
 function mainInfo(){
     document.getElementById("title").innerHTML = st[st.length - 1].symbol
     document.getElementById("exchange").innerHTML = st[st.length - 1].exchange
@@ -64,6 +73,10 @@ function mainInfo(){
     document.getElementById("immagine").src = dynamicImg
 }
 
+/**
+ * Calculates the maximum hypotetical income from selling at highest and buying at lowest everyday.
+ * @returns The calculated value.
+ */
 function maxHypotheticalHighAndSellRevenue(){
     sum = 0;
     for (let i = 0; i < st.length; i++) {
@@ -72,6 +85,10 @@ function maxHypotheticalHighAndSellRevenue(){
     return sum.toFixed(2)
 }
 
+/**
+ * Calculates the percentage of days the stock went up.
+ * @returns The percentage.
+ */
 function raiseDaysPercentage(){
     daysPassed = 0
     daysRaised = 0
@@ -87,6 +104,9 @@ function raiseDaysPercentage(){
     return (daysRaised / daysPassed).toFixed(3)
 }
 
+/**
+ * Puts together the main chart.
+ */
 function mainChart(){
     const ctx = document.getElementById('main-chart')
 
@@ -165,6 +185,9 @@ function mainChart(){
     })
 }
 
+/**
+ * Puts together the secondary chart.
+ */
 function theOtherChart(){
     const ctx = document.getElementById('the-other-chart')
     labels = []
@@ -233,13 +256,25 @@ function theOtherChart(){
     })
 }
 
+/**
+ * A class to make the counting of Most Common Values easier.
+ */
 class MCV{
+    /**
+     * 
+     * @param value A value.
+     * @param repetitions The number of times it occured.
+     */
     constructor(value, repetitions){
         this.value = value
         this.repetitions = repetitions
     }
 }
 
+/**
+ * Saves a chart as image on client's device.
+ * @param main If it has to refer to the main chart.
+ */
 function saveAsImage(main){
     link = document.createElement('a')
     if(main){
@@ -254,6 +289,11 @@ function saveAsImage(main){
     link.delete
 }
 
+/**
+ * Gets an URL param.
+ * @param sParam The URL param name.
+ * @returns The param.
+ */
 function GetURLParameter(sParam)
 {
     var sPageURL = window.location.search.substring(1)
