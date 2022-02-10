@@ -1,5 +1,5 @@
 st = `test string (to not waste API quota)`
-dynamicImg = "https://g.foolcdn.com/art/companylogos/square/aapl.png"
+dynamicImg = "test string (to not waste API quota)"
 
 
 

@@ -55,7 +55,7 @@ public class Requester {
 
     public String makeImgRequest(String ticker){
         try{
-            URL url = new URL("https://app.zenserp.com/api/v2/search?apikey=9c21add0-8a43-11ec-87bc-1dd77ace6f86&tbm=isch&q=" + ticker);
+            URL url = new URL("https://app.zenserp.com/api/v2/search?apikey=66e55c20-8a54-11ec-904f-f18088d51853&tbm=isch&q=" + ticker);
             HttpURLConnection con = (HttpURLConnection) url.openConnection();
             con.setRequestMethod("GET");
             BufferedReader in = new BufferedReader(new InputStreamReader(con.getInputStream()));
