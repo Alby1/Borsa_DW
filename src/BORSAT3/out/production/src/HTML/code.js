@@ -3,10 +3,8 @@ dynamicImg = "https://g.foolcdn.com/art/companylogos/square/aapl.png"
 
 
 
-/* STOCK_NAME='Netflix, Inc.'
-STOCK_ADDRESS='100 Winchester Cir, Los Gatos, California, United States'
+/* STOCK_ADDRESS='100 Winchester Cir, Los Gatos, California, United States'
 STOCK_DESCRIPTION='Netflix, Inc. is an American subscription streaming service and production company. Launched on August 29, 1997, it offers a library of films and television series through distribution deals as well as its own productions, known as Netflix Originals.' */
-STOCK_NAME='TORRY'
 STOCK_ADDRESS='Via Nino Tavoni, 12/3, 41058 Vignola MO'
 STOCK_DESCRIPTION='Questo progetto è stato reso possibile da: Ospedale psichiatrico Il Gelso.'
 
@@ -48,8 +46,7 @@ function marqData(string){
 }
 
 function mainInfo(){
-    document.getElementById("title").innerHTML = STOCK_NAME
-    document.getElementById("code").innerHTML = st[st.length - 1].symbol
+    document.getElementById("title").innerHTML = st[st.length - 1].symbol
     document.getElementById("exchange").innerHTML = st[st.length - 1].exchange
     document.getElementById("address").innerHTML = STOCK_ADDRESS
     document.getElementById("description").innerHTML = STOCK_DESCRIPTION
