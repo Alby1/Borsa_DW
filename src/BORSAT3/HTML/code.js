@@ -2,7 +2,6 @@ st = `[{"date":"2021-12-31T00:00:00+0000","symbol":"AAPL","volume":64062262,"hig
 dynamicImg = "https://g.foolcdn.com/art/companylogos/square/aapl.png"
 
 
-
 /* STOCK_ADDRESS='100 Winchester Cir, Los Gatos, California, United States'
 STOCK_DESCRIPTION='Netflix, Inc. is an American subscription streaming service and production company. Launched on August 29, 1997, it offers a library of films and television series through distribution deals as well as its own productions, known as Netflix Originals.' */
 STOCK_ADDRESS='Via Nino Tavoni, 12/3, 41058 Vignola MO'
@@ -23,9 +22,9 @@ function STDs(){
     st = st.reverse()
 
     date = new Date(st[0].date)
-    firstDate = `${date.getFullYear()}-${date.getMonth() + 1}-${date.getDay()}`
+    firstDate = `${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()}`
     date = new Date(st[st.length-1].date)
-    lastDate = `${date.getFullYear()}-${date.getMonth() + 1}-${date.getDay()}`
+    lastDate = `${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()}`
 
     earnedInTimePeriod = (st[st.length-1].close - st[0].close).toFixed(2)
 
@@ -52,15 +51,7 @@ function mainInfo(){
     document.getElementById("description").innerHTML = STOCK_DESCRIPTION
     marqData(`Last close: ${(st[st.length - 1].close).toFixed(2)}$`)
 
-    repeat = true
-    budget = 1
-    while(repeat){
-        budget *= 10
-        maxHypo = maxHypotheticalHighAndSellRevenue(budget)
-        if(maxHypo != budget) repeat = false
-    }
-    document.getElementById("maxHypo").innerHTML = `If you had marketed ${budget}$ you would have ${maxHypo}$ now.`
-
+    document.getElementById("maxHypo").innerHTML = `Maximum hypotetical income ${maxHypotheticalHighAndSellRevenue()}$.`
 
     if(earnedInTimePeriod >= 0){
         document.getElementById("earned").innerHTML = `In the time span the company has earned: ${earnedInTimePeriod}$.`
@@ -72,43 +63,11 @@ function mainInfo(){
 }
 
 function maxHypotheticalHighAndSellRevenue(budget){
-    yesterday = st[0].close
-    stocks = 0
-    higher = 0
-    for (let i = 1; i < st.length; i++) {
-        today = st[i].close
-        if(today > yesterday || st.length - i < 2){
-            if(stocks > 0 || st.length - i < 5){
-                sellableAmount = 1
-                if(higher > 0 || st.length - i < 5){
-                    sellableAmount = stocks
-                }
-                budget += today * sellableAmount
-                stocks -= sellableAmount
-            }
-            higher = 1
-        } else if(today < yesterday){
-            if(budget >= today && !st.length - i < 10){
-                buyableAmount = 1
-                if(higher < 0){
-                    buyableAmount = Math.floor(budget / today)
-                }
-                budget -= today * buyableAmount
-                stocks += buyableAmount
-            }
-            higher = -1
-        } else {
-            if(higher > 0 && stocks >= 0){
-                budget += today
-            } else if(higher < 0 && budget >= today){
-                budget -= today
-                stocks += 1
-            }
-        }
-
-        yesterday = today
+    out = 0;
+    for (let i = 0; i < st.length; i++) {
+        out += st[i].high - st[i].low
     }
-    return (budget).toFixed(2)
+    return out
 }
 
 function raiseDaysPercentage(){

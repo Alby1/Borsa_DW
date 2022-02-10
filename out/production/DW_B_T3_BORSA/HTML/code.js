@@ -1,9 +1,9 @@
 st = `[{"date":"2021-12-31T00:00:00+0000","symbol":"AAPL","volume":64062262,"high":179.23,"low":177.26,"exchange":"XNAS","close":177.57,"open":178.085},{"date":"2021-12-30T00:00:00+0000","volume":59619100,"high":180.57,"low":178.09,"close":178.2,"open":179.47},{"date":"2021-12-29T00:00:00+0000","volume":62231200,"high":180.63,"low":178.14,"close":179.38,"open":179.33},{"date":"2021-12-28T00:00:00+0000","volume":76421728,"high":181.33,"low":178.53,"close":179.29,"open":180.16},{"date":"2021-12-27T00:00:00+0000","volume":73006629,"high":180.42,"low":177.07,"close":180.33,"open":177.085},{"date":"2021-12-23T00:00:00+0000","volume":68227500,"high":176.85,"low":175.27,"close":176.28,"open":175.85},{"date":"2021-12-22T00:00:00+0000","volume":92004100,"high":175.86,"low":172.15,"close":175.64,"open":173.04},{"date":"2021-12-21T00:00:00+0000","volume":85845000,"high":173.2,"low":169.12,"close":172.99,"open":171.56},{"date":"2021-12-20T00:00:00+0000","volume":107313400,"high":170.58,"low":167.46,"close":169.75,"open":168.28},{"date":"2021-12-17T00:00:00+0000","volume":195432700,"high":173.47,"low":169.69,"close":171.14,"open":169.93},{"date":"2021-12-16T00:00:00+0000","volume":149964200,"high":181.14,"low":170.75,"close":172.26,"open":179.28},{"date":"2021-12-15T00:00:00+0000","volume":130687600,"high":179.5,"low":172.31,"close":179.3,"open":175.11},{"date":"2021-12-14T00:00:00+0000","volume":139285700,"high":177.74,"low":172.21,"close":174.33,"open":175.25},{"date":"2021-12-13T00:00:00+0000","volume":151103753,"high":182.09,"low":175.53,"close":175.74,"open":181.115},{"date":"2021-12-10T00:00:00+0000","volume":110986702,"high":179.63,"low":174.69,"close":179.45,"open":175.205},{"date":"2021-12-09T00:00:00+0000","volume":107976382,"high":176.75,"low":173.92,"close":174.56,"open":174.91},{"date":"2021-12-08T00:00:00+0000","volume":116998851,"high":175.95,"low":170.7,"close":175.08,"open":172.125},{"date":"2021-12-07T00:00:00+0000","volume":117482381,"high":171.58,"low":168.34,"close":171.18,"open":169.08},{"date":"2021-12-06T00:00:00+0000","volume":107496982,"high":167.8799,"low":164.28,"close":165.32,"open":164.29},{"date":"2021-12-03T00:00:00+0000","volume":117938300,"high":164.96,"low":159.72,"close":161.84,"open":164.02},{"date":"2021-12-02T00:00:00+0000","volume":136474900,"high":164.2,"low":157.8,"close":163.76,"open":158.74},{"date":"2021-12-01T00:00:00+0000","volume":145135682,"high":170.295,"low":164.53,"close":164.77,"open":167.48}]`
+dynamicImg = "https://g.foolcdn.com/art/companylogos/square/aapl.png"
 
-/* STOCK_NAME='Netflix, Inc.'
-STOCK_ADDRESS='100 Winchester Cir, Los Gatos, California, United States'
+
+/* STOCK_ADDRESS='100 Winchester Cir, Los Gatos, California, United States'
 STOCK_DESCRIPTION='Netflix, Inc. is an American subscription streaming service and production company. Launched on August 29, 1997, it offers a library of films and television series through distribution deals as well as its own productions, known as Netflix Originals.' */
-STOCK_NAME='TORRY'
 STOCK_ADDRESS='Via Nino Tavoni, 12/3, 41058 Vignola MO'
 STOCK_DESCRIPTION='Questo progetto è stato reso possibile da: Ospedale psichiatrico Il Gelso.'
 
@@ -22,9 +22,9 @@ function STDs(){
     st = st.reverse()
 
     date = new Date(st[0].date)
-    firstDate = `${date.getFullYear()}-${date.getMonth() + 1}-${date.getDay()}`
+    firstDate = `${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()}`
     date = new Date(st[st.length-1].date)
-    lastDate = `${date.getFullYear()}-${date.getMonth() + 1}-${date.getDay()}`
+    lastDate = `${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()}`
 
     earnedInTimePeriod = (st[st.length-1].close - st[0].close).toFixed(2)
 
@@ -52,14 +52,7 @@ function mainInfo(){
     document.getElementById("description").innerHTML = STOCK_DESCRIPTION
     marqData(`Last close: ${(st[st.length - 1].close).toFixed(2)}$`)
     
-    repeat = true
-    budget = 1
-    while(repeat){
-        budget *= 10
-        maxHypo = maxHypotheticalHighAndSellRevenue(budget)
-        if(maxHypo != budget) repeat = false
-    }
-    document.getElementById("maxHypo").innerHTML = `If you had marketed ${budget}$ you would have ${maxHypo}$ now.`
+    document.getElementById("maxHypo").innerHTML = `Maximum hypotetical income ${maxHypotheticalHighAndSellRevenue()}$.`
 
 
     if(earnedInTimePeriod >= 0){
@@ -70,43 +63,11 @@ function mainInfo(){
 }
 
 function maxHypotheticalHighAndSellRevenue(budget){
-    yesterday = st[0].close
-    stocks = 0
-    higher = 0
-    for (let i = 1; i < st.length; i++) {
-        today = st[i].close
-        if(today > yesterday || st.length - i < 2){
-            if(stocks > 0 || st.length - i < 5){
-                sellableAmount = 1
-                if(higher > 0 || st.length - i < 5){
-                    sellableAmount = stocks
-                }
-                budget += today * sellableAmount
-                stocks -= sellableAmount
-            }
-            higher = 1
-        } else if(today < yesterday){
-            if(budget >= today && !st.length - i < 10){
-                buyableAmount = 1
-                if(higher < 0){
-                    buyableAmount = Math.floor(budget / today)
-                }
-                budget -= today * buyableAmount
-                stocks += buyableAmount
-            }
-            higher = -1
-        } else {
-            if(higher > 0 && stocks >= 0){
-                budget += today
-            } else if(higher < 0 && budget >= today){
-                budget -= today
-                stocks += 1
-            }
-        }
-
-        yesterday = today
+    out = 0;
+    for (let i = 0; i < st.length; i++) {
+        out += st[i].high - st[i].low
     }
-    return (budget).toFixed(2)
+    return out
 }
 
 function raiseDaysPercentage(){
