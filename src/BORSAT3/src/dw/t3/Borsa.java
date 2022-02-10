@@ -15,11 +15,11 @@ public class Borsa {
 
         String[] data = parser.parseDataJSON(requester.makeAPIDataRequest());
 
-        //String json = parser.parseJSON(requester.makeAPIRequest(data));
-        String json = "test string (to not waste API quota)";
+        String json = parser.parseJSON(requester.makeAPIRequest(data));
+        String img = parser.parseImgJSON(requester.makeImgRequest(data[0]));
 
-        //String img = parser.parseImgJSON(requester.makeImgRequest(data[0]));
-        String img = "test string (to not waste API quota)";
+        //String json = "test string (to not waste API quota)";
+        //String img = "test string (to not waste API quota)";
 
         String jarPath;
         try {
