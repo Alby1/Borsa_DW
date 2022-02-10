@@ -1,6 +1,6 @@
 # DW B T3 BORSA
 
-Grazie all'utilizzo di una API con l'implementazione di Javascript, HTML e Java, il nostro obiettivo finale sarà avere un file HTML che mostrerà gli stock della apple, con il relativo grafico 
+Grazie all'utilizzo di una API con l'implementazione di Javascript, HTML e Java, il nostro obiettivo finale sarà avere un file HTML che mostrerà gli stock di Netflix, con il relativo grafico 
 (Valore più alto e più basso in base ad un tempo determinato, con la possibilità di vederlo in percentuale.) 
 Spostandoci al codice, abbiamo usato Java per implementare le chiamate alla API, invece Javascript ci è stato utile per trasformare i dati in grafici. Inoltre la pagina HTML ha la possibilità di aggiornarsi da sola, in modo da ricaricare i dati e vederli sempre aggiornati.  
 Tutto il codice Java è documentato.
