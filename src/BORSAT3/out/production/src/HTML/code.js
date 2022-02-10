@@ -42,7 +42,7 @@ function marqData(string){
     marqDa = document.getElementById("marqData")
 
     if(marqDa.innerHTML != ""){
-        marqDa.innerHTML += " -.- "
+        marqDa.innerHTML += " · "
     }
     marqDa.innerHTML += string
 }
@@ -55,14 +55,7 @@ function mainInfo(){
     document.getElementById("description").innerHTML = STOCK_DESCRIPTION
     marqData(`Last close: ${(st[st.length - 1].close).toFixed(2)}$`)
 
-    repeat = true
-    budget = 1
-    while(repeat){
-        budget *= 10
-        maxHypo = maxHypotheticalHighAndSellRevenue(budget)
-        if(maxHypo != budget) repeat = false
-    }
-    document.getElementById("maxHypo").innerHTML = `If you had marketed ${budget}$ you would have ${maxHypo}$ now.`
+    document.getElementById("maxHypo").innerHTML = `Max theoric realizable: ${maxHypotheticalHighAndSellRevenue()}$.`
 
 
     if(earnedInTimePeriod >= 0){
@@ -74,44 +67,12 @@ function mainInfo(){
     document.getElementById("immagine").src = dynamicImg
 }
 
-function maxHypotheticalHighAndSellRevenue(budget){
-    yesterday = st[0].close
-    stocks = 0
-    higher = 0
-    for (let i = 1; i < st.length; i++) {
-        today = st[i].close
-        if(today > yesterday || st.length - i < 2){
-            if(stocks > 0 || st.length - i < 5){
-                sellableAmount = 1
-                if(higher > 0 || st.length - i < 5){
-                    sellableAmount = stocks
-                }
-                budget += today * sellableAmount
-                stocks -= sellableAmount
-            }
-            higher = 1
-        } else if(today < yesterday){
-            if(budget >= today && !st.length - i < 10){
-                buyableAmount = 1
-                if(higher < 0){
-                    buyableAmount = Math.floor(budget / today)
-                }
-                budget -= today * buyableAmount
-                stocks += buyableAmount
-            }
-            higher = -1
-        } else {
-            if(higher > 0 && stocks >= 0){
-                budget += today
-            } else if(higher < 0 && budget >= today){
-                budget -= today
-                stocks += 1
-            }
-        }
-
-        yesterday = today
+function maxHypotheticalHighAndSellRevenue(){
+    sum = 0;
+    for (let i = 0; i < st.length; i++) {
+        sum += st[i].high - st[i].low
     }
-    return (budget).toFixed(2)
+    return sum.toFixed(2)
 }
 
 function raiseDaysPercentage(){
