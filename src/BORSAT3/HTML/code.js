@@ -39,7 +39,7 @@ function marqData(string){
     marqDa = document.getElementById("marqData")
 
     if(marqDa.innerHTML != ""){
-        marqDa.innerHTML += " -.- "
+        marqDa.innerHTML += " · "
     }
     marqDa.innerHTML += string
 }
@@ -82,7 +82,7 @@ function raiseDaysPercentage(){
         daysPassed += 1
         yesterday = today
     }
-    return (daysRaised / daysPassed).toFixed(3)
+    return ((daysRaised / daysPassed) * 100).toFixed(1)
 }
 
 function mainChart(){
