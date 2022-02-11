@@ -3,20 +3,21 @@ dynamicImg = "https://g.foolcdn.com/art/companylogos/square/aapl.png"
 
 
 
-/* STOCK_ADDRESS='100 Winchester Cir, Los Gatos, California, United States'
-STOCK_DESCRIPTION='Netflix, Inc. is an American subscription streaming service and production company. Launched on August 29, 1997, it offers a library of films and television series through distribution deals as well as its own productions, known as Netflix Originals.' */
-STOCK_ADDRESS='Via Nino Tavoni, 12/3, 41058 Vignola MO'
-STOCK_DESCRIPTION='Questo progetto è stato reso possibile da: Ospedale psichiatrico Il Gelso.'
+/* stock_address='100 Winchester Cir, Los Gatos, California, United States'
+stock_description='Netflix, Inc. is an American subscription streaming service and production company. Launched on August 29, 1997, it offers a library of films and television series through distribution deals as well as its own productions, known as Netflix Originals.' */
+stock_name = ""
+stock_address = 'Via Nino Tavoni, 12/3, 41058 Vignola MO'
+stock_description = 'Questo progetto è stato reso possibile da: Ospedale psichiatrico Il Gelso.'
 
 /* var upward = "rgb(17,149,8)"
 var downward = "rgb(202, 29, 33)" */
 firstDate = ""
 lastDate = ""
 earnedInTimePeriod = 0
-/**
- * The main function, gets called when the page is loaded.
- */
-function STDs(){
+    /**
+     * The main function, gets called when the page is loaded.
+     */
+function STDs() {
 
     /* st = GetURLParameter("st")
     st = st.replaceAll("%22", '"') */
@@ -26,10 +27,10 @@ function STDs(){
 
     date = new Date(st[0].date)
     firstDate = `${date.getFullYear()}-${date.getMonth() + 1}-${date.getDay()}`
-    date = new Date(st[st.length-1].date)
+    date = new Date(st[st.length - 1].date)
     lastDate = `${date.getFullYear()}-${date.getMonth() + 1}-${date.getDay()}`
 
-    earnedInTimePeriod = (st[st.length-1].close - st[0].close).toFixed(2)
+    earnedInTimePeriod = (st[st.length - 1].close - st[0].close).toFixed(2)
 
     console.log(st)
 
@@ -42,10 +43,10 @@ function STDs(){
  * Puts together a string to put in the top moving text (revoked).
  * @param string string to add.
  */
-function marqData(string){
+function marqData(string) {
     marqDa = document.getElementById("marqData")
 
-    if(marqDa.innerHTML != ""){
+    if (marqDa.innerHTML != "") {
         marqDa.innerHTML += " · "
     }
     marqDa.innerHTML += string
@@ -54,17 +55,18 @@ function marqData(string){
 /**
  * Modifies the main text elements in the HTML to insert the main data (non calculated).
  */
-function mainInfo(){
-    document.getElementById("title").innerHTML = st[st.length - 1].symbol
+function mainInfo() {
+    stock_name = st[st.length - 1].symbol
+    document.getElementById("title").innerHTML = stock_name
     document.getElementById("exchange").innerHTML = st[st.length - 1].exchange
-    document.getElementById("address").innerHTML = STOCK_ADDRESS
-    document.getElementById("description").innerHTML = STOCK_DESCRIPTION
+    document.getElementById("address").innerHTML = stock_address
+    document.getElementById("description").innerHTML = stock_description
     marqData(`Last close: ${(st[st.length - 1].close).toFixed(2)}$`)
 
     document.getElementById("maxHypo").innerHTML = `Max theoric realizable: ${maxHypotheticalHighAndSellRevenue()}$.`
 
 
-    if(earnedInTimePeriod >= 0){
+    if (earnedInTimePeriod >= 0) {
         document.getElementById("earned").innerHTML = `In the time span the company has earned: ${earnedInTimePeriod}$.`
     } else document.getElementById("earned").innerHTML = `In the time span the company has lost: ${-earnedInTimePeriod}$.`
 
@@ -77,7 +79,7 @@ function mainInfo(){
  * Calculates the maximum hypotetical income from selling at highest and buying at lowest everyday.
  * @returns The calculated value.
  */
-function maxHypotheticalHighAndSellRevenue(){
+function maxHypotheticalHighAndSellRevenue() {
     sum = 0;
     for (let i = 0; i < st.length; i++) {
         sum += st[i].high - st[i].low
@@ -89,25 +91,25 @@ function maxHypotheticalHighAndSellRevenue(){
  * Calculates the percentage of days the stock went up.
  * @returns The percentage.
  */
-function raiseDaysPercentage(){
+function raiseDaysPercentage() {
     daysPassed = 0
     daysRaised = 0
     yesterday = st[0].close
     for (let i = 1; i < st.length; i++) {
         today = st[i].close
-        if(today > yesterday) {
+        if (today > yesterday) {
             daysRaised += 1
         }
         daysPassed += 1
         yesterday = today
     }
-    return (daysRaised / daysPassed).toFixed(3)
+    return ((daysRaised / daysPassed) * 100).toFixed(3)
 }
 
 /**
  * Puts together the main chart.
  */
-function mainChart(){
+function mainChart() {
     const ctx = document.getElementById('main-chart')
 
     closes = []
@@ -119,8 +121,8 @@ function mainChart(){
     min = st[0].close
 
     for (let i = 0; i < st.length; i++) {
-        if(max < st[i].close) max = st[i].close
-        if(min > st[i].close) min = st[i].close
+        if (max < st[i].close) max = st[i].close
+        if (min > st[i].close) min = st[i].close
         closes[i] = st[i].close
         opens[i] = st[i].open
         highs[i] = st[i].high
@@ -141,19 +143,19 @@ function mainChart(){
                 fill: false,
                 borderColor: 'rgb(75, 192, 192)',
                 tension: 0.1
-            },{
+            }, {
                 label: 'Open',
                 data: opens,
                 fill: false,
                 borderColor: 'rgb(95, 70, 192)',
                 tension: 0.1
-            },{
+            }, {
                 label: 'High',
                 data: highs,
                 fill: false,
                 borderColor: 'rgb(14, 205, 14)',
                 tension: 0.1
-            },{
+            }, {
                 label: 'Low',
                 data: lows,
                 fill: false,
@@ -188,7 +190,7 @@ function mainChart(){
 /**
  * Puts together the secondary chart.
  */
-function theOtherChart(){
+function theOtherChart() {
     const ctx = document.getElementById('the-other-chart')
     labels = []
     data = []
@@ -196,15 +198,15 @@ function theOtherChart(){
 
     MCVs[0] = new MCV(st[0].close, 1)
 
-    for (let i = 1; i < st.length; i++){
+    for (let i = 1; i < st.length; i++) {
         done = false
         for (let j = 0; j < MCVs.length; j++) {
-            if(MCVs[j].value == st[i].close && !done){
+            if (MCVs[j].value == st[i].close && !done) {
                 MCVs[j].repetitions += 1;
                 done = true
             }
 
-            if(j == MCVs.length - 1 && !done){
+            if (j == MCVs.length - 1 && !done) {
                 MCVs[MCVs.length] = new MCV(st[i].close, 0)
             }
         }
@@ -259,13 +261,13 @@ function theOtherChart(){
 /**
  * A class to make the counting of Most Common Values easier.
  */
-class MCV{
+class MCV {
     /**
      * 
      * @param value A value.
      * @param repetitions The number of times it occured.
      */
-    constructor(value, repetitions){
+    constructor(value, repetitions) {
         this.value = value
         this.repetitions = repetitions
     }
@@ -275,13 +277,13 @@ class MCV{
  * Saves a chart as image on client's device.
  * @param main If it has to refer to the main chart.
  */
-function saveAsImage(main){
+function saveAsImage(main) {
     link = document.createElement('a')
-    if(main){
-        link.download = `${STOCK_NAME} from ${firstDate} to ${lastDate}.png`
+    if (main) {
+        link.download = `${stock_name} from ${firstDate} to ${lastDate}.png`
         chart = document.getElementById('main-chart')
     } else {
-        link.download = `MCV in ${STOCK_NAME} from ${firstDate} to ${lastDate}.png`
+        link.download = `MCV in ${stock_name} from ${firstDate} to ${lastDate}.png`
         chart = document.getElementById('the-other-chart')
     }
     link.href = chart.toDataURL()
@@ -294,15 +296,12 @@ function saveAsImage(main){
  * @param sParam The URL param name.
  * @returns The param.
  */
-function GetURLParameter(sParam)
-{
+function GetURLParameter(sParam) {
     var sPageURL = window.location.search.substring(1)
     var sURLVariables = sPageURL.split('&')
-    for (var i = 0; i < sURLVariables.length; i++)
-    {
+    for (var i = 0; i < sURLVariables.length; i++) {
         var sParameterName = sURLVariables[i].split('=')
-        if (sParameterName[0] == sParam)
-        {
+        if (sParameterName[0] == sParam) {
             return sParameterName[1]
         }
     }
