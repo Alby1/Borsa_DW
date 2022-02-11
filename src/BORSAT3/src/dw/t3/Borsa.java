@@ -27,6 +27,7 @@ public class Borsa {
             jarPath = (Borsa.class.getProtectionDomain().getCodeSource().getLocation().getPath()).replace("file:/", "")
                     .replaceFirst("/", "")
                     .replace("src.jar", "");
+            System.out.println(jarPath);
 
             FileReader fr = new FileReader("");
             if (Utils.isWindows()) {
