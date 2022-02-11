@@ -27,9 +27,13 @@ public class Borsa {
             jarPath = (Borsa.class.getProtectionDomain().getCodeSource().getLocation().getPath()).replace("file:/", "")
                     .replaceFirst("/", "")
                     .replace("src.jar", "");
-            System.out.println(jarPath);
 
-            FileReader fr = new FileReader(jarPath + "HTML/code.js");
+            FileReader fr = new FileReader("");
+            if (Utils.isWindows()) {
+                fr = new FileReader(jarPath + "HTML/code.js");
+            } else if (Utils.isMac() || Utils.isUnix()) {
+                fr = new FileReader("/" + jarPath + "HTML/code.js");
+            }
             BufferedReader br = new BufferedReader(fr);
             String line, entireFile = "";
             int lines = 0;
@@ -45,7 +49,15 @@ public class Borsa {
                 lines++;
             }
 
-            File jsFile = new File(jarPath + "HTML/code.js");
+            File jsFile = new File("");
+            File htmlFile = new File("");
+            if (Utils.isWindows()) {
+                htmlFile = new File(jarPath + "HTML/index.html");
+                jsFile = new File(jarPath + "HTML/code.js");
+            } else if (Utils.isMac() || Utils.isUnix()) {
+                htmlFile = new File("/" + jarPath + "HTML/index.html");
+                jsFile = new File("/" + jarPath + "HTML/code.js");
+            }
 
             FileWriter fw = new FileWriter(jsFile);
 
@@ -55,11 +67,11 @@ public class Borsa {
             if (count == 0) {
                 String command = "";
                 if (Utils.isUnix()) {
-                    command = "xdg-open " + (jarPath + "HTML/index.html");
+                    command = "xdg-open " + htmlFile;
                 } else if (Utils.isWindows()) {
-                    command = "cmd /C start " + ("/" + jarPath + "HTML/index.html");
+                    command = "cmd /C start " + htmlFile;
                 } else if (Utils.isMac()) {
-                    command = "open " + (jarPath + "HTML/index.html");
+                    command = "open " + htmlFile;
                 }
 
                 try {
