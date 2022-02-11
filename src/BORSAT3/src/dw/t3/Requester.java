@@ -14,7 +14,7 @@ public class Requester {
      */
     public String makeAPIRequest(String[] data) {
         try {
-            URL url = new URL("http://api.marketstack.com/v1/eod?access_key=ad6efcf74f8bee5e5615cc2146452418&symbols=" + data[0] + "&limit=500&date_from=" + data[1] + "&date_to=" + data[2]);
+            URL url = new URL("http://api.marketstack.com/v1/eod?access_key=a034836444e629f41427fa8e9561cbb8&symbols=" + data[0] + "&limit=500&date_from=" + data[1] + "&date_to=" + data[2]);
             HttpURLConnection con = (HttpURLConnection) url.openConnection();
             con.setRequestMethod("GET");
             BufferedReader in = new BufferedReader(new InputStreamReader(con.getInputStream()));
@@ -63,7 +63,7 @@ public class Requester {
      */
     public String makeImgRequest(String ticker){
         try{
-            URL url = new URL("https://app.zenserp.com/api/v2/search?apikey=66e55c20-8a54-11ec-904f-f18088d51853&tbm=isch&q=" + ticker);
+            URL url = new URL("https://app.zenserp.com/api/v2/search?apikey=c208d4f0-8b2d-11ec-919e-6da79a0daee3&tbm=isch&q=" + ticker);
             HttpURLConnection con = (HttpURLConnection) url.openConnection();
             con.setRequestMethod("GET");
             BufferedReader in = new BufferedReader(new InputStreamReader(con.getInputStream()));

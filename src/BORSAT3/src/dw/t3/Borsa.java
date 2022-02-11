@@ -15,12 +15,12 @@ public class Borsa {
 
         String[] data = parser.parseDataJSON(requester.makeAPIDataRequest());
 
-        //String json = parser.parseJSON(requester.makeAPIRequest(data));
-        //String img = parser.parseImgJSON(requester.makeImgRequest(data[0]));
+        String json = parser.parseJSON(requester.makeAPIRequest(data));
+        String img = parser.parseImgJSON(requester.makeImgRequest(data[0]));
 
         //use these two strings below and comment top two lines to not waste API quota
-        String json = "[{\"date\":\"2021-12-31T00:00:00+0000\",\"symbol\":\"AAPL\",\"volume\":64062262,\"high\":179.23,\"low\":177.26,\"exchange\":\"XNAS\",\"close\":177.57,\"open\":178.085},{\"date\":\"2021-12-30T00:00:00+0000\",\"volume\":59619100,\"high\":180.57,\"low\":178.09,\"close\":178.2,\"open\":179.47}]";
-        String img = "https://g.foolcdn.com/art/companylogos/square/aapl.png";
+        //String json = "[{\"date\":\"2021-12-31T00:00:00+0000\",\"symbol\":\"AAPL\",\"volume\":64062262,\"high\":179.23,\"low\":177.26,\"exchange\":\"XNAS\",\"close\":177.57,\"open\":178.085},{\"date\":\"2021-12-30T00:00:00+0000\",\"volume\":59619100,\"high\":180.57,\"low\":178.09,\"close\":178.2,\"open\":179.47}]";
+        //String img = "https://g.foolcdn.com/art/companylogos/square/aapl.png";
 
         String jarPath;
         try {
