@@ -57,7 +57,7 @@ public class Borsa {
                 if (Utils.isUnix()) {
                     command = "xdg-open " + (jarPath + "HTML/index.html");
                 } else if (Utils.isWindows()) {
-                    command = "cmd /C start " + (jarPath + "HTML/index.html");
+                    command = "cmd /C start " + ("/" + jarPath + "HTML/index.html");
                 } else if (Utils.isMac()) {
                     command = "open " + (jarPath + "HTML/index.html");
                 }
