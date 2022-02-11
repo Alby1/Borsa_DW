@@ -1,0 +1,24 @@
+<diagram program="umletino" version="14.3.0"><zoom_level>10</zoom_level><element><id>UMLClass</id><coordinates><x>560</x><y>189</y><w>200</w><h>110</h></coordinates><panel_attributes>Borsa.java
+--
+/- count: int/
+- requester: Requester
+- parser: Parser
+--
++ main(): void
+- tick(): void</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>290</x><y>369</y><w>230</w><h>90</h></coordinates><panel_attributes>Requester.java
+--
++ makeAPIRequest(data: String): String
++ makeAPIDataRequest(): String
++ makeImgRequest(ticker: String): String</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>560</x><y>369</y><w>230</w><h>90</h></coordinates><panel_attributes>Parser.java
+--
++ parseJSON(json: String): String
++ parseDataJSON(json: String): String
++ parseImgJSON(json: String): String
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>670</x><y>289</y><w>30</w><h>100</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes><additional_attributes>10;10;10;80</additional_attributes></element><element><id>Relation</id><coordinates><x>380</x><y>289</y><w>220</w><h>100</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes><additional_attributes>200;10;10;80</additional_attributes></element><element><id>UMLClass</id><coordinates><x>830</x><y>369</y><w>220</w><h>90</h></coordinates><panel_attributes>Utils.java
+--
+- OS: String
+--
+/+ isWindows(): Boolean/
+/+ isMac():  Boolean/
+/+ isUnix():  Boolean/
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>730</x><y>289</y><w>230</w><h>100</h></coordinates><panel_attributes>lt=-</panel_attributes><additional_attributes>210;80;10;10</additional_attributes></element></diagram>
