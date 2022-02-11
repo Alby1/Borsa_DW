@@ -29,7 +29,7 @@ public class Borsa {
                     .replace("src.jar", "");
             System.out.println(jarPath);
 
-            FileReader fr = new FileReader("");
+            FileReader fr = null;
             if (Utils.isWindows()) {
                 fr = new FileReader(jarPath + "HTML/code.js");
             } else if (Utils.isMac() || Utils.isUnix()) {
@@ -50,8 +50,8 @@ public class Borsa {
                 lines++;
             }
 
-            File jsFile = new File("");
-            File htmlFile = new File("");
+            File jsFile = null;
+            File htmlFile = null;
             if (Utils.isWindows()) {
                 htmlFile = new File(jarPath + "HTML/index.html");
                 jsFile = new File(jarPath + "HTML/code.js");
