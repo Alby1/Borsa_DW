@@ -2,14 +2,6 @@ package dw.t3;
 
 import org.json.*;
 
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.time.Instant;
-import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
-import java.util.Date;
-
 public class Parser {
 
     /**
@@ -63,13 +55,14 @@ public class Parser {
      * @param json
      * @return URL of the string
      */
-    public String parseImgJSON(String json){
-        JSONObject out = new JSONObject(json);
+    public String[] parseInfoJSON(String json){
+        JSONObject obj = new JSONObject(json);
+        String[] out = new String[3];
 
-        JSONArray imgs = out.getJSONArray("image_results");
-        out = imgs.getJSONObject(0);
-
-        return out.getString("sourceUrl");
+        out[0] = obj.getString("logo");
+        out[1] = obj.getString("description");
+        out[2] = obj.getString("hq_address") + ", " + obj.getString("hq_country");
+        return out;
     }
 
 }

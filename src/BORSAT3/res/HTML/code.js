@@ -3,11 +3,9 @@ dynamicImg = "https://g.foolcdn.com/art/companylogos/square/aapl.png"
 
 
 
-/* stock_address='100 Winchester Cir, Los Gatos, California, United States'
-stock_description='Netflix, Inc. is an American subscription streaming service and production company. Launched on August 29, 1997, it offers a library of films and television series through distribution deals as well as its own productions, known as Netflix Originals.' */
+
 stock_name = ""
-stock_address = 'Via Nino Tavoni, 12/3, 41058 Vignola MO'
-stock_description = 'Questo progetto è stato reso possibile da: Ospedale psichiatrico Il Gelso.'
+
 
 /* var upward = "rgb(17,149,8)"
 var downward = "rgb(202, 29, 33)" */
