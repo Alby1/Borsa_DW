@@ -26,9 +26,9 @@ function STDs() {
     st = st.reverse()
 
     date = new Date(st[0].date)
-    firstDate = `${date.getFullYear()}-${date.getMonth() + 1}-${date.getDay()}`
+    firstDate = `${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()}`
     date = new Date(st[st.length - 1].date)
-    lastDate = `${date.getFullYear()}-${date.getMonth() + 1}-${date.getDay()}`
+    lastDate = `${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()}`
 
     earnedInTimePeriod = (st[st.length - 1].close - st[0].close).toFixed(2)
 
