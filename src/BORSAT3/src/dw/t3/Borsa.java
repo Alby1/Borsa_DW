@@ -7,23 +7,9 @@ public class Borsa {
     private static int count = 0;
 
     /**
-     * Calls the tick method every 20 seconds.
-     */
-    public static void main(String[] args) {
-        while (true) {
-            try {
-                tick();
-                Thread.sleep(20000);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-        }
-    }
-
-    /**
      * Creates instances of the Requester and Parser classes, then makes the parser parse the JSON string obtained from the requester.
      */
-    private static void tick() {
+    public static void main(String[] args) {
         Requester requester = new Requester();
         Parser parser = new Parser();
 
@@ -100,5 +86,4 @@ public class Borsa {
             ex.printStackTrace();
         }
     }
-
 }
