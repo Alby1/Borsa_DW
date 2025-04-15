@@ -4,6 +4,10 @@ Questo progetto era un compito un po' speciale per scuola:
 2 settimane di lezioni sostituite dallo sviluppo di questo software. Suddivise metà per progettazione e l'altra per programmare. Meeting intermediari e a consegna.  
 Segue la descrizione originale.
 
+"Vi rubo il token"
+- ok fai pure, è un servizio gratuito.
+- probabilmente non è più valido per inattività.
+
 
 
 # DW B T3 BORSA
