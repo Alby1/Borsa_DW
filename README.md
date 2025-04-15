@@ -1,6 +1,8 @@
 # Aggiornamento 2025-04-15 (YYYY-MM-DD)
-Questa repository è ora pubblica.
-Questo progetto era un compito un po' speciale per scuola.
+Questa repository è ora pubblica.  
+Questo progetto era un compito un po' speciale per scuola:
+2 settimane di lezioni sostituite dallo sviluppo di questo software. Suddivise metà per progettazione e l'altra per programmare. Meeting intermediari e a consegna.  
+Segue la descrizione originale.
 
 
 
